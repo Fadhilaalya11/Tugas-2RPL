@@ -1,0 +1,39 @@
+/*
+ * PSPEC:
+ * File Name: insert_menu.c
+ * Purpose: Menambahkan menu baru ke sistem.
+ * Inputs: Nama menu, harga dari input pengguna.
+ * Outputs: Menyimpan ke array menu.
+ * Constraints: Nama menu dan harga harus diisi.
+
+ * DPPL:
+ * 1. Terima input pengguna.
+ * 2. Validasi input.
+ * 3. Simpan ke array 'menu'.
+ */
+
+#include <stdio.h>
+
+struct Menu {
+    char name[50];
+    float price;
+};
+
+int main() {
+    struct Menu menus[100];
+    int count = 0;
+
+    printf("Masukkan Nama Menu: ");
+    fgets(menus[count].name, 50, stdin);
+    printf("Masukkan Harga: ");
+    scanf("%f", &menus[count].price);
+
+    if(strlen(menus[count].name) > 1 && menus[count].price > 0) {
+        printf("Menu berhasil ditambahkan!\n");
+        count++;
+    } else {
+        printf("Nama dan harga harus diisi.\n");
+    }
+
+    return 0;
+}
